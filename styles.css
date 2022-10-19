@@ -1,0 +1,393 @@
+
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+/*
+  2. Remove default margin
+*/
+* {
+  margin: 0;
+}
+/*
+  3. Allow percentage-based heights in the application
+*/
+html, body {
+  height: 100%;
+}
+/*
+  Typographic tweaks!
+  4. Add accessible line-height
+  5. Improve text rendering
+*/
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+/*
+  6. Improve media defaults
+*/
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+  7. Remove built-in form typography styles
+*/
+input, button, textarea, select {
+  font: inherit;
+}
+/*
+  8. Avoid text overflows
+*/
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+/*
+  9. Create a root stacking context
+*/
+#root, #__next {
+  isolation: isolate;
+}
+
+body {
+  background: rgba(158, 138, 114, 0.25);
+  font-family: 'Lato', sans-serif;
+}
+
+.site-logo {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  padding: 3rem;
+}
+
+.topnav {
+  margin-left: auto;
+}
+
+.topnav-item:hover {
+  background-color: #4B0101;
+  color: #FFFFFF;
+}
+
+.topnav-item.active {
+  text-decoration: underline;
+}
+
+.main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.main-text:before {
+ content: '';
+ height: 100%;
+ vertical-align: middle;
+}
+
+.food-banner{
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.main-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  gap: 1rem;
+}
+#home-title {
+  color: #4B0101; 
+  -webkit-text-stroke: 0.05rem #ffffff;
+  font-weight: 700;
+  font-size: 1.5rem;
+  /* line-height: 5.375rem;   */
+  text-align: center;
+  text-transform: uppercase;
+ }
+
+ .order-btn {
+  text-transform: uppercase;
+  background-color: #FFFFFF;
+  color: #4B0101;
+  border: none;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 0.9375rem;
+  font-size: 1rem;
+  font-weight: 900;
+  width: 10rem;
+  height: 2.5rem;
+ }
+
+ .order-btn:hover {
+  background-color: #4B0101;
+  color: #ffffff;
+  cursor: pointer;
+ }
+
+ .order-btn:active {
+  background-color: rgba(75, 1, 1, 0.5);
+ }
+
+/* Style the links inside the navigation bar */
+.topnav-item {
+  float: left;
+  color: #4B0101;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.icon {
+  width: auto;
+  height: 50%;
+}
+
+.footer {
+  padding: 5rem 2.5rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6rem;
+  color: #4B0101;
+  text-transform: uppercase;
+}
+
+.footer-heading {
+  display: flex;
+}
+
+.footer-heading h3 {
+  font-size: 1.21875rem;
+  font-weight: 700;
+}
+
+.footer-body p {
+  font-size: 0.83475rem;
+  font-weight: 500;
+  width: 16rem;
+}
+
+#home-summary {
+  padding-left: 2rem;
+  padding-right: 2rem;
+  font-size: 0.75rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  -webkit-text-stroke: 0.025rem #4B0101;
+  display: none;
+}
+
+#coupon {
+  font-weight: bold;
+  text-decoration: underline;
+  cursor: pointer;
+  
+}
+
+/* NAVIGATION MENU */
+.hamburger {
+  display: none;
+}
+
+.bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background-color: #4B0101;
+}
+
+
+@media only screen and (max-width: 576px) {
+  .topnav {
+      position: fixed;
+      left: -100%;
+      top: 5rem;
+      display: flex;
+      flex-direction: column;
+      background-color: #fff;
+      width: 100%;
+      border-radius: 10px;
+      text-align: center;
+      transition: 0.3s;
+      box-shadow:
+          0 10px 27px rgba(0, 0, 0, 0.05);
+  }
+
+  .topnav.active {
+      left: 0;
+      z-index: 1;
+  }
+
+  .nav-item {
+      margin: 2.5rem 0;
+  }
+
+  .hamburger {
+      display: block;
+      cursor: pointer;
+      z-index: 2;
+  }
+  .hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.active .bar:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+  }
+
+  .hamburger.active .bar:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .icon {
+    height: 15%;
+    width: auto;
+  }
+
+  .footer-text {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+}
+
+
+@media screen and (min-width : 576px) {
+  #home-title {
+    font-size: 3rem;
+    -webkit-text-stroke: 0.05rem #ffffff;
+  }
+  #home-summary {
+    font-size: 1rem;
+    -webkit-text-stroke: 0.05rem #4B0101;
+  }
+  .order-btn {
+    font-size: 1rem;
+    font-weight: 900;
+    width: 10rem;
+    height: 2.5rem;
+  }
+  .main-text {
+    gap: 1rem;
+  }
+  .footer-heading h3{
+    font-size: 1.21875rem;
+  }
+  .footer-body p {
+    font-size: 0.83475rem;
+  }
+  .icon {
+    height: 20%;
+  }
+}
+
+@media screen and (min-width : 768px) {
+  #home-title {
+    font-size: 4rem;
+    -webkit-text-stroke: 0.075rem #ffffff;
+  }
+  #home-summary {
+    font-size: 1.25rem;
+    -webkit-text-stroke: 0.05rem #4B0101;
+  }
+  .order-btn {
+    font-size: 0.8125rem;
+    font-weight: 900;
+    width: 10rem;
+    height: 2.5rem;
+  }
+  .main-text {
+    gap: 2rem;
+  }
+  .footer-heading h3{
+    font-size: 1.21875rem;
+  }
+  .footer-body p {
+    font-size: 0.83475rem;
+  }
+  .icon {
+    height: 30%
+  }
+}
+
+@media screen and (min-width : 900px) {
+  #home-title {
+    font-size: 5rem;
+    -webkit-text-stroke: 0.075rem #ffffff;
+  }
+  #home-summary {
+    font-size: 1.5rem;
+    -webkit-text-stroke: 0.05rem #4B0101;
+  }
+  .order-btn {
+    font-size: 1.21875rem;
+    width: 15rem;
+    height: 3.75rem;
+  }
+  .main-text {
+    gap: 2rem;
+  }
+  .topnav-item {
+    font-size: 1.21875rem;
+  }
+  .footer-heading h3{
+    font-size: 1.625rem;
+  }
+  .footer-body p {
+    font-size: 1.125rem;
+  }
+  .icon {
+    height: 50%;
+  }
+}
+
+@media screen and (min-width : 1200px) {
+  #home-title {
+    font-size: 6rem;
+    -webkit-text-stroke: 0.075rem #ffffff;
+  }
+  #home-summary {
+    font-size: 2rem;
+    -webkit-text-stroke: 0.05rem #4B0101;
+  }
+  .order-btn {
+    font-size: 1.625rem;
+    width: 20rem;
+    height: 5rem;
+  }
+  .main-text {
+    gap: 3rem;
+  }
+  .topnav-item {
+    font-size: 1.625rem;
+  }
+  .footer-heading h3{
+    font-size: 1.625rem;
+  }
+  .footer-body p {
+    font-size: 1.125rem;
+  }
+  .icon {
+    height: 50%;
+  }
+}
